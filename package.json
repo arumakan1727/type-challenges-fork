@@ -10,7 +10,11 @@
     "readme": "esno ./scripts/readme.ts",
     "build": "esno ./scripts/build.ts",
     "generate": "esno ./scripts/generate-play.ts",
-    "lint": "eslint .",
+    "lint": "biome check",
+    "fmt": "biome format && biome check --fix",
+    "fix:unsafe": "biome check --fix --unsafe",
+    "typechk": "git ls-files playground | xargs tsc",
+    "chk": "pnpm lint && pnpm typechk",
     "translate": "esno ./scripts/translate-cli.ts",
     "utils:release": "pnpm -C utils release"
   },
