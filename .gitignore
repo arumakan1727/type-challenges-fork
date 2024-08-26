@@ -1,3 +1,9 @@
+## Arumakan's ignore list
+deno.lock
+tmp
+.nvim
+
+## Original
 node_modules/
 .DS_Store
 .idea
