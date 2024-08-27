@@ -1,6 +1,7 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "module": "commonjs"
-  }
+	"$schema": "https://json.schemastore.org/tsconfig.json",
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"module": "commonjs"
+	}
 }

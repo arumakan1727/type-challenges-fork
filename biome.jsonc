@@ -1,0 +1,75 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"trailingCommas": "es5",
+			"indentStyle": "space",
+			"indentWidth": 2,
+			"lineWidth": 90
+		}
+	},
+	"json": {
+		"parser": {
+			"allowComments": false
+		}
+	},
+	"formatter": {
+		"formatWithErrors": false
+	},
+	"linter": {
+		"enabled": true,
+		"ignore": ["**/*.js"],
+		"rules": {
+			"recommended": true,
+			"a11y": {
+				"all": true
+			},
+			"complexity": {
+				"all": true,
+				"noBannedTypes": "off"
+			},
+			"correctness": {
+				"all": true,
+				"noNodejsModules": "off"
+			},
+			"performance": {
+				"all": true
+			},
+			"security": {
+				"all": true
+			},
+			"suspicious": {
+				"all": true,
+				"noExplicitAny": "off"
+			},
+			"nursery": {
+				"all": true,
+				"noUndeclaredDependencies": "off",
+				"useImportExtensions": "off"
+			}
+		}
+	},
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"include": ["**/*.ts", "**/*.json", "**/*.jsonc"],
+		"ignore": [
+			"**/node_modules",
+			"**/package-lock.json",
+			".vscode",
+			"questions",
+			"scripts",
+			"out",
+			"build",
+			"**/tmp",
+			"**/*.d.ts"
+		]
+	}
+}
