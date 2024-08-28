@@ -28,7 +28,7 @@ jobs:
         run: pnpm i
 
       - name: typecheck
-        run: pnpm typechk
+        run: pnpm typechk:ci
 
       - name: lint  # ここでフォーマットチェックも実行される
         run: pnpm run lint
