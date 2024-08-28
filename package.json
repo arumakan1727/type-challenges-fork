@@ -13,7 +13,8 @@
 		"lint": "biome check",
 		"fmt": "biome format --fix && biome check --fix",
 		"fix:unsafe": "biome check --fix --unsafe",
-		"typechk": "git ls-files playground | xargs tsc",
+		"typechk": "./armkn-scripts/list-git-targeted-ts-files.sh playground | { echo 'Type checking...' >&2; tee /dev/tty; } | xargs tsc --noEmit",
+		"typechk:ci": "tsc --noEmit playground/**/*.ts",
 		"chk": "pnpm lint && pnpm typechk",
 		"translate": "esno ./scripts/translate-cli.ts",
 		"utils:release": "pnpm -C utils release"
