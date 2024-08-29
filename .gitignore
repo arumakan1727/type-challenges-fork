@@ -27,3 +27,4 @@ playground/04-extreme/*
 ## 01-easy
 !playground/01-easy/00004-easy-pick.ts
 !playground/01-easy/00007-easy-readonly.ts
+!playground/01-easy/00011-easy-tuple-to-object.ts
