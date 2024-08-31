@@ -34,7 +34,6 @@ type MyPick<T, K extends keyof T> = { [P in K]: T[P] };
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
 
-// biome-ignore lint/correctness/noUnusedVariables: 型チェックのために必要
 type cases = [
   Expect<Equal<Expected1, MyPick<Todo, 'title'>>>,
   Expect<Equal<Expected2, MyPick<Todo, 'title' | 'completed'>>>,
