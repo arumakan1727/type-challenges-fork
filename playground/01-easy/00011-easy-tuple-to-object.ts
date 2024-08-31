@@ -32,7 +32,6 @@ const sym2 = Symbol(2);
 const tupleSymbol = [sym1, sym2] as const;
 const tupleMix = [1, '2', 3, '4', sym1] as const;
 
-// biome-ignore lint/correctness/noUnusedVariables: 型チェックのために必要
 type cases = [
   Expect<
     Equal<
@@ -53,7 +52,6 @@ type cases = [
 ];
 
 // @ts-expect-error
-// biome-ignore lint/correctness/noUnusedVariables: 型チェックのために必要
 type error = TupleToObject<[[1, 2], {}]>;
 
 /* _____________ 次のステップ _____________ */
