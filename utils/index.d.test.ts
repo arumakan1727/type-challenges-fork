@@ -1,6 +1,5 @@
 import type { Alike, Equal, Expect, ExpectFalse, IsAny, NotEqual } from './index';
 
-// biome-ignore lint/correctness/noUnusedVariables: for type checking
 type cases = [
   /* Expect */
   Expect<true>,

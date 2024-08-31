@@ -34,7 +34,8 @@
 			},
 			"correctness": {
 				"all": true,
-				"noNodejsModules": "off"
+				"noNodejsModules": "off",
+				"noUnusedVariables": "off"
 			},
 			"performance": {
 				"all": true
@@ -44,7 +45,8 @@
 			},
 			"suspicious": {
 				"all": true,
-				"noExplicitAny": "off"
+				"noExplicitAny": "off",
+				"noEmptyBlockStatements": "off"
 			},
 			"nursery": {
 				"all": true,
