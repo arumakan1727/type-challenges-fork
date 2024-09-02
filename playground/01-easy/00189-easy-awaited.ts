@@ -21,8 +21,8 @@
 */
 
 /* _____________ ここにコードを記入 _____________ */
-
-type MyAwaited<T> = any;
+type Thenable<T> = { then: (onfulfilled: (arg: T) => any) => any };
+type MyAwaited<T> = T extends Thenable<infer X> ? MyAwaited<X> : T;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
