@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/01-easy/00268-easy-if.ts",
 		"playground/01-easy/00533-easy-concat.ts",
 		"playground/01-easy/00898-easy-includes.ts",
 		"playground/01-easy/03057-easy-push.ts",
