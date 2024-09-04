@@ -18,7 +18,18 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Concat<T, U> = any;
+type TupleHead<T extends readonly any[]> = T['length'] extends 0 ? never : T[0];
+type TupleTail<T extends readonly any[]> = T['length'] extends 1
+  ? []
+  : T extends [infer _, ...infer Rest]
+    ? Rest
+    : never;
+
+type Concat<T extends readonly any[], U extends readonly any[]> = U extends []
+  ? T
+  : T extends []
+    ? U
+    : Concat<[...T, TupleHead<U>], TupleTail<U>>;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
