@@ -17,8 +17,25 @@
 */
 
 /* _____________ ここにコードを記入 _____________ */
+// biome-ignore format: 読みやすさのためにこの型定義の format を無効化
+type Tail<T extends readonly any[]> =
+  T['length'] extends 1 ? []
+  : T extends [T[0], ...infer Rest]
+    ? Rest
+    : never;
 
-type Includes<T extends readonly any[], U> = any;
+// biome-ignore format: 読みやすさのためにこの型定義の format を無効化
+type IsEqual<X, Y> =
+  (<T1>() => T1 extends X ? 1 : 2) extends
+  (<T2>() => T2 extends Y ? 1 : 2)
+  ? true : false;
+
+// biome-ignore format: 読みやすさのためにこの型定義の format を無効化
+type Includes<T extends readonly any[], U> =
+  T extends [] ? false
+  : IsEqual<T[0], U> extends true
+    ? true
+    : Includes<Tail<T>, U>;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
