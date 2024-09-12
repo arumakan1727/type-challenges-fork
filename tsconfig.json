@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/00002-medium-get-return-type.ts",
 		"playground/02-medium/00003-medium-omit.ts",
 		"playground/02-medium/00008-medium-readonly-2.ts",
 		"playground/02-medium/00009-medium-deep-readonly.ts",
