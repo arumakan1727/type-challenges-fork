@@ -28,7 +28,18 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type MyOmit<T, K> = any;
+type MyOmit<T extends Object, K extends keyof T> = {
+  [k in keyof T as k extends K ? never : k]: T[k];
+};
+
+// 下記の方法だとテストケース3で失敗する (Todo1 の readonly が失われてしまう)。
+/*
+type MyExclude<T, X extends T> = T extends X ? never : T;
+
+type MyOmit2<T extends Object, X extends keyof T> = {
+  [k in MyExclude<keyof T, X>]: T[k]
+}
+*/
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
