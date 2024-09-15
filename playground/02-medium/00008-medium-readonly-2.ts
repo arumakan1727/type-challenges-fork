@@ -34,7 +34,11 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type MyReadonly2<T, K> = any;
+type MyReadonly2<T extends Object, K extends keyof T = keyof T> = {
+  readonly [k in K]: T[k];
+} & {
+  [k in keyof T as k extends K ? never : k]: T[k];
+};
 
 /* _____________ テストケース _____________ */
 import type { Alike, Expect } from '@type-challenges/utils';
