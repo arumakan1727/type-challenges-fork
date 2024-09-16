@@ -20,7 +20,7 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type TupleToUnion<T> = any;
+type TupleToUnion<T extends readonly unknown[]> = T[number];
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
