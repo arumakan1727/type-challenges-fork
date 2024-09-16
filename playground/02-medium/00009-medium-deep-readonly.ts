@@ -36,7 +36,21 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type DeepReadonly<T> = any;
+// 参考: https://github.com/type-challenges/type-challenges/issues/187#issuecomment-1534931782
+type DeepReadonly<T> = {
+  readonly [k in keyof T]: keyof T[k] extends never ? T[k] : DeepReadonly<T[k]>;
+};
+
+// 自分が思いついたやつ
+/*
+type DeepReadonly<T> = {
+  readonly [k in keyof T]: T[k] extends Function
+    ? T[k]
+    : T[k] extends Object
+      ? DeepReadonly<T[k]>
+      : T[k];
+};
+*/
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
