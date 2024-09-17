@@ -39,9 +39,12 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Chainable = {
-  option(key: string, value: any): any;
-  get(): any;
+type Chainable<T extends object = {}> = {
+  option<K extends string, V>(
+    key: Exclude<K, keyof T>, // 既存のキーを指定した場合は型エラーにする
+    value: V
+  ): Chainable<Omit<T, K> & Record<K, V>>; // 既存のキーを指定した場合は V で置き換える (テストケース3を参照)
+  get(): T;
 };
 
 /* _____________ テストケース _____________ */
