@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/00012-medium-chainable-options.ts",
 		"playground/02-medium/00015-medium-last-of-array.ts",
 		"playground/02-medium/00016-medium-pop.ts",
 		"playground/02-medium/00020-medium-promise-all.ts",
