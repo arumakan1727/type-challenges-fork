@@ -24,7 +24,7 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Last<T extends any[]> = any;
+type Last<T extends readonly unknown[]> = T extends [...infer _, infer X] ? X : never;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
