@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/00016-medium-pop.ts",
 		"playground/02-medium/00020-medium-promise-all.ts",
 		"playground/02-medium/00062-medium-type-lookup.ts",
 		"playground/02-medium/00106-medium-trim-left.ts",
