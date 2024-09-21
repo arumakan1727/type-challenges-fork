@@ -23,7 +23,11 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-declare function PromiseAll(values: any): any;
+declare function PromiseAll<T extends unknown[]>(
+  values: [...T]
+): Promise<{
+  [I in keyof T]: Awaited<T[I]>;
+}>;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
