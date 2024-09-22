@@ -29,7 +29,11 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type LookUp<U, T> = any;
+// biome-ignore format: 読み易さのため
+type LookUp<U extends { type: string }, T extends U['type']> =
+  U extends { type: T }
+    ? U
+    : never;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
