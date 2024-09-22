@@ -20,7 +20,9 @@
 
 type Whitespace = ' ' | '\n' | '\t';
 
-type TrimLeft<S extends string> = S extends `${Whitespace}${infer Rest}` ? TrimLeft<Rest> : S;
+type TrimLeft<S extends string> = S extends `${Whitespace}${infer Rest}`
+  ? TrimLeft<Rest>
+  : S;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
