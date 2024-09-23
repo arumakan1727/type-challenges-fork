@@ -17,8 +17,17 @@
 */
 
 /* _____________ ここにコードを記入 _____________ */
+type Whitespace = ' ' | '\n' | '\t';
 
-type Trim<S extends string> = any;
+type TrimLeft<S extends string> = S extends `${Whitespace}${infer Rest}`
+  ? TrimLeft<Rest>
+  : S;
+
+type TrimRight<S extends string> = S extends `${infer Rest}${Whitespace}`
+  ? TrimRight<Rest>
+  : S;
+
+type Trim<S extends string> = TrimRight<TrimLeft<S>>;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
