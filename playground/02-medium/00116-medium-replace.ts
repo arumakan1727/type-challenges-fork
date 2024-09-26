@@ -18,7 +18,13 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Replace<S extends string, From extends string, To extends string> = any;
+// biome-ignore format: 読み易さのため
+type Replace<S extends string, From extends string, To extends string> =
+  From extends ''
+  ? S
+  : S extends `${infer Prefix}${From}${infer Suffix}`
+    ? `${Prefix}${To}${Suffix}`
+    : S;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
