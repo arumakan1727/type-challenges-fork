@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/00116-medium-replace.ts",
 		"playground/02-medium/00119-medium-replaceall.ts",
 		"playground/02-medium/00191-medium-append-argument.ts",
 		"playground/02-medium/00296-medium-permutation.ts",
