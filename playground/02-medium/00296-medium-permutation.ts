@@ -16,7 +16,13 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Permutation<T> = any;
+// biome-ignore format: 読みやすさのため
+type Permutation<T, U = T> =
+  [T] extends [never]
+    ? []
+    : T extends U
+      ? [T, ...Permutation<Exclude<U, T>>]
+      : never;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
