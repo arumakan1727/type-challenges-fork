@@ -18,7 +18,13 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Flatten = any;
+// biome-ignore format: 読み易さのため
+type Flatten<T extends any[], Res extends any[] = []> =
+  T extends [T[0], ...infer Tail]
+    ? T[0] extends any[]
+      ? Flatten<[...T[0], ...Tail], Res>
+      : Flatten<Tail, [...Res, T[0]]>
+    : Res;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';

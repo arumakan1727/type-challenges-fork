@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/00459-medium-flatten.ts",
 		"playground/02-medium/00527-medium-append-to-object.ts",
 		"playground/02-medium/00529-medium-absolute.ts",
 		"playground/02-medium/00531-medium-string-to-union.ts",
