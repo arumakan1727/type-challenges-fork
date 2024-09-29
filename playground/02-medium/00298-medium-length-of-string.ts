@@ -12,7 +12,12 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type LengthOfString<S extends string> = any;
+type LengthOfString<
+  S extends string,
+  A extends readonly null[] = [],
+> = S extends `${infer _}${infer Rest}`
+  ? LengthOfString<Rest, [null, ...A]>
+  : A['length'];
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
