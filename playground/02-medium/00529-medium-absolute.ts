@@ -19,7 +19,27 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Absolute<T extends number | string | bigint> = any;
+type RemovePrefix<
+  S extends string,
+  Prefix extends string,
+> = S extends `${Prefix}${infer Rest}` ? Rest : S;
+
+type RemoveSuffix<
+  S extends string,
+  Suffix extends string,
+> = S extends `${infer Rest}${Suffix}` ? Rest : S;
+
+type RemoveAll<
+  S extends string,
+  P extends string,
+> = S extends `${infer Prefix}${P}${infer Suffix}`
+  ? `${Prefix}${RemoveAll<Suffix, P>}`
+  : S;
+
+type Absolute<T extends number | string | bigint> = RemoveAll<
+  RemoveSuffix<RemovePrefix<`${T}`, '-'>, 'n'>,
+  '_'
+>;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';

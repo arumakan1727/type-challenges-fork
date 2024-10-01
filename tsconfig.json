@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/00529-medium-absolute.ts",
 		"playground/02-medium/00531-medium-string-to-union.ts",
 		"playground/02-medium/00599-medium-merge.ts",
 		"playground/02-medium/00612-medium-kebabcase.ts",
