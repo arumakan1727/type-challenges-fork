@@ -19,7 +19,9 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type StringToUnion<T extends string> = any;
+type StringToUnion<T extends string> = T extends `${infer Head}${infer Tail}`
+  ? Head | StringToUnion<Tail>
+  : never;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
