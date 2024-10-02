@@ -12,7 +12,7 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Diff<O, O1> = any;
+type Diff<X, Y> = Omit<X & Y, keyof (X | Y)>;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
