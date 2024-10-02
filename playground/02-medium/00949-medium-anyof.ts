@@ -19,7 +19,9 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type AnyOf<T extends readonly any[]> = any;
+type Falthy = false | 0 | '' | [] | null | undefined | Record<string, never>;
+
+type AnyOf<T extends readonly any[]> = T[number] extends Falthy ? false : true;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
