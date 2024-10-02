@@ -27,7 +27,9 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Merge<F, S> = any;
+type Merge<F extends object, S extends object> = {
+  [P in keyof F | keyof S]: P extends keyof S ? S[P] : P extends keyof F ? F[P] : never;
+};
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
