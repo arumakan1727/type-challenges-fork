@@ -24,7 +24,11 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type KebabCase<S> = any;
+type KebabCase<S extends string> = S extends `${infer C}${infer Tail}`
+  ? Tail extends Uncapitalize<Tail>
+    ? `${Lowercase<C>}${KebabCase<Tail>}`
+    : `${Lowercase<C>}-${KebabCase<Tail>}`
+  : S;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
