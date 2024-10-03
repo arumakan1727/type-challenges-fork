@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/01097-medium-isunion.ts",
 		"playground/02-medium/01130-medium-replacekeys.ts",
 		"playground/02-medium/01367-medium-remove-index-signature.ts",
 		"playground/02-medium/01978-medium-percentage-parser.ts",

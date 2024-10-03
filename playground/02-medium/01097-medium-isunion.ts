@@ -20,7 +20,23 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type IsUnion<T> = any;
+// 自分の解法
+// type IsUnion<T> = UnionToTuple<T>['length'] extends 0 | 1 ? false : true;
+//
+// type UnionToTuple<T, U = T> = [T] extends [never]
+//   ? []
+//   : T extends T
+//     ? [T, ...UnionToTuple<Exclude<U, T>>]
+//     : never;
+
+// より簡潔な解法
+type IsUnion<T, U = T> = [T] extends [never]
+  ? false
+  : T extends T
+    ? [U] extends [T]
+      ? false
+      : true
+    : never;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
