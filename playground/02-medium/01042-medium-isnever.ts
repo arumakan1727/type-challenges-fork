@@ -23,7 +23,7 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type IsNever<T> = any;
+type IsNever<T> = [T] extends [never] ? true : false;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
