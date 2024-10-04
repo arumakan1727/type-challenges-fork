@@ -45,7 +45,9 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type ReplaceKeys<U, T, Y> = any;
+type ReplaceKeys<U extends object, T extends PropertyKey, Y extends object> = {
+  [K in keyof U]: K extends T ? (K extends keyof Y ? Y[K] : never) : U[K];
+};
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
