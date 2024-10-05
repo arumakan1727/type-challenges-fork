@@ -18,7 +18,12 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type DropChar<S, C> = any;
+type DropChar<
+  S extends string,
+  C extends string,
+> = S extends `${infer Prefix}${C}${infer Suffix}`
+  ? `${Prefix}${DropChar<Suffix, C>}`
+  : S;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
