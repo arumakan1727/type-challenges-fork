@@ -31,8 +31,12 @@
 */
 
 /* _____________ ここにコードを記入 _____________ */
+type ExtractSign<S extends string> =
+  S extends `${infer Sign extends '+' | '-'}${infer Rest}` ? [Sign, Rest] : ['', S];
 
-type PercentageParser<A extends string> = any;
+type PercentageParser<S extends string> = ExtractSign<S> extends [infer Sign, infer Rest]
+  ? [Sign, ...(Rest extends `${infer N}%` ? [N, '%'] : [Rest, ''])]
+  : never;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
