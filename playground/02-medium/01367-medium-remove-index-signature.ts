@@ -23,7 +23,15 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type RemoveIndexSignature<T> = any;
+type RemoveIndexSignature<T extends object> = {
+  // biome-ignore format: よみやすさのため
+  [K in keyof T as (
+    string extends K ? never :
+    number extends K ? never :
+    symbol extends K ? never :
+    K
+  )]: T[K];
+};
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
