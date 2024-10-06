@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/02257-medium-minusone.ts",
 		"playground/02-medium/02595-medium-pickbytype.ts",
 		"playground/02-medium/02688-medium-startswith.ts",
 		"playground/02-medium/02693-medium-endswith.ts",
