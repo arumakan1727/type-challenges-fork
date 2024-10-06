@@ -20,7 +20,9 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type EndsWith<T extends string, U extends string> = any;
+type EndsWith<T extends string, U extends string> = T extends `${string}${U}`
+  ? true
+  : false;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';

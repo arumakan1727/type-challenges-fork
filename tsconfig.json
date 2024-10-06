@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/02693-medium-endswith.ts",
 		"playground/02-medium/02757-medium-partialbykeys.ts",
 		"playground/02-medium/02759-medium-requiredbykeys.ts",
 		"playground/02-medium/02793-medium-mutable.ts",
