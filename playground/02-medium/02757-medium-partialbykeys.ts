@@ -26,7 +26,18 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type PartialByKeys<T, K> = any;
+type IntersectionToSingleObj<T> = {
+  [K in keyof T]: T[K];
+};
+
+type PartialByKeys<
+  T extends object,
+  K extends keyof T = keyof T,
+> = IntersectionToSingleObj<
+  Omit<T, K> & {
+    [P in K]?: T[P];
+  }
+>;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
