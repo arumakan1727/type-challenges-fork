@@ -27,7 +27,13 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type RequiredByKeys<T, K> = any;
+type IntersectionToSingleObj<T> = {
+  [K in keyof T]: T[K];
+};
+
+type RequiredByKeys<T extends {}, K extends keyof T = keyof T> = IntersectionToSingleObj<
+  Omit<T, K> & Required<Pick<T, K>>
+>;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';

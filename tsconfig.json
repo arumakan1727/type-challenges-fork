@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/02759-medium-requiredbykeys.ts",
 		"playground/02-medium/02793-medium-mutable.ts",
 		"playground/02-medium/02852-medium-omitbytype.ts",
 		"playground/02-medium/02946-medium-objectentries.ts",
