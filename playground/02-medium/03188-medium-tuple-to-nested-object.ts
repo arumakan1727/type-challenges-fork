@@ -18,8 +18,12 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type TupleToNestedObject<T, U> = any;
-
+type TupleToNestedObject<T extends readonly PropertyKey[], U> = T extends [
+  T[0],
+  ...infer Tail extends PropertyKey[],
+]
+  ? Record<T[0], TupleToNestedObject<Tail, U>>
+  : U;
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
 
