@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/02946-medium-objectentries.ts",
 		"playground/02-medium/03062-medium-shift.ts",
 		"playground/02-medium/03188-medium-tuple-to-nested-object.ts",
 		"playground/02-medium/03192-medium-reverse.ts",
