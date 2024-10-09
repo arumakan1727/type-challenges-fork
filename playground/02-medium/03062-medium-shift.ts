@@ -18,7 +18,7 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Shift<T> = any;
+type Shift<T extends readonly any[]> = T extends [T[0], ...infer Tail] ? Tail : T;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
