@@ -23,7 +23,9 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type ObjectEntries<T> = any;
+type ObjectEntries<T extends object, U extends object = Required<T>> = {
+  [K in keyof U]: [K, U[K] extends never ? undefined : U[K]];
+}[keyof U];
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
