@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/03196-medium-flip-arguments.ts",
 		"playground/02-medium/03243-medium-flattendepth.ts",
 		"playground/02-medium/03326-medium-bem-style-string.ts",
 		"playground/02-medium/04179-medium-flip.ts",
