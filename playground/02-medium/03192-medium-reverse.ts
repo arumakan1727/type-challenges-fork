@@ -19,7 +19,12 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Reverse<T> = any;
+type Reverse<T extends readonly any[], Res extends readonly any[] = []> = T extends [
+  T[0],
+  ...infer Rest,
+]
+  ? Reverse<Rest, [T[0], ...Res]>
+  : Res;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
