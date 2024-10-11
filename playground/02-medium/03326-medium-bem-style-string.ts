@@ -16,7 +16,15 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type BEM<B extends string, E extends string[], M extends string[]> = any;
+type AddPrefix<T extends readonly string[], Prefix extends string> = T extends []
+  ? ''
+  : `${Prefix}${T[number]}`;
+
+type BEM<
+  B extends string,
+  E extends string[],
+  M extends string[],
+> = `${B}${AddPrefix<E, '__'>}${AddPrefix<M, '--'>}`;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
