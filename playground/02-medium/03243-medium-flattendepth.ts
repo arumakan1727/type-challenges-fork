@@ -21,7 +21,18 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type FlattenDepth = any;
+type FlattenDepth<
+  A extends readonly any[],
+  MaxDepth extends number = 1,
+  Z extends null[] = [],
+> = A extends [A[0], ...infer Tail]
+  ? [
+      A[0] extends any[] ? true : false,
+      Z['length'] extends MaxDepth ? true : false,
+    ] extends [true, false]
+    ? [...FlattenDepth<A[0], MaxDepth, [...Z, null]>, ...FlattenDepth<Tail, MaxDepth, Z>]
+    : [A[0], ...FlattenDepth<Tail, MaxDepth, Z>]
+  : A;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
