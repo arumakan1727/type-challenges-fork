@@ -20,7 +20,9 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Flip<T> = any;
+type Flip<T extends Record<any, string | number | boolean>> = {
+  [P in keyof T as `${T[P]}`]: P;
+};
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect, NotEqual } from '@type-challenges/utils';
