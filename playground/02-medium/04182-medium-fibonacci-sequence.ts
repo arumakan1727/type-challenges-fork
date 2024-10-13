@@ -21,7 +21,16 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type Fibonacci<T extends number> = any;
+type Fibonacci<
+  N extends number,
+  Counter extends null[] = [null],
+  Cur extends null[] = [null],
+  Prev extends null[] = [],
+> = N extends 0 | 1
+  ? N
+  : Counter['length'] extends N
+    ? Cur['length']
+    : Fibonacci<N, [...Counter, null], [...Cur, ...Prev], Cur>;
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
