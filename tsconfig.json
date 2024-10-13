@@ -9,7 +9,6 @@
 		"dist",
 		"questions/**/*.ts",
 		"scripts/**/*.ts",
-		"playground/02-medium/04182-medium-fibonacci-sequence.ts",
 		"playground/02-medium/04260-medium-nomiwase.ts",
 		"playground/02-medium/04425-medium-greater-than.ts",
 		"playground/02-medium/04471-medium-zip.ts",
